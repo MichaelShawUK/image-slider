@@ -1,0 +1,24 @@
+{
+  "name": "image-slider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelShawUK/image-slider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelShawUK/image-slider/issues"
+  },
+  "homepage": "https://github.com/MichaelShawUK/image-slider#readme",
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0"
+  }
+}
