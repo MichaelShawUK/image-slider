@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#images img {
+  height: 427px;
+  width: 640px;
+}
+
+#images {
+  display: flex;
+}
+
+.default {
+  transition: transform 500ms ease-in-out;
+}
