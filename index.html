@@ -9,17 +9,31 @@
   <script src="main.js" defer></script>
 </head>
 <body>
-  <div id="images" class="default">
-    <img src="img/1.jpg">
-    <img src="img/2.jpg">
-    <img src="img/3.jpg">
-    <img src="img/4.jpg">
-    <img src="img/5.jpg">
-    <img src="img/6.jpg">
-    <img src="img/7.jpg">
-    <img src="img/8.jpg">
-  </div>  
-  <button id="prev-btn">PREV</button>
-  <button id="next-btn">NEXT</button>
+  <div id="container">
+    <div class="controls" id="left"><img src="img/left-arrow.png"></div>
+    <div id="frame">
+      <div id="images" class="default">
+        <img src="img/1.jpg">
+        <img src="img/2.jpg">
+        <img src="img/3.jpg">
+        <img src="img/4.jpg">
+        <img src="img/5.jpg">
+        <img src="img/6.jpg">
+        <img src="img/7.jpg">
+        <img src="img/8.jpg">
+      </div>
+    </div>
+    <div class="controls" id="right"><img src="img/right-arrow.png"></div>
+  </div>
+  <div id="dots">
+    <div class="dot">&#9679;</div>
+    <div class="dot">&#9679;</div>
+    <div class="dot">&#9679;</div>
+    <div class="dot">&#9679;</div>
+    <div class="dot">&#9679;</div>
+    <div class="dot">&#9679;</div>
+    <div class="dot">&#9679;</div>
+    <div class="dot">&#9679;</div>
+  </div>
 </body>
 </html>
