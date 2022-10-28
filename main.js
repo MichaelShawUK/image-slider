@@ -1,45 +1,61 @@
 const imgCount = 8;
 const imgWidth = 640;
 
-const leftControl = document.getElementById('left');
-const rightControl = document.getElementById('right');
-const images = document.getElementById('images');
+const leftControl = document.getElementById("left");
+const rightControl = document.getElementById("right");
+const images = document.getElementById("images");
+const dots = document.querySelectorAll(".dot");
+
 
 function getCurrentPosition() {
-  let indexOfPx = images.style.transform.indexOf('p');
+  let indexOfPx = images.style.transform.indexOf("p");
   let currentPosition = images.style.transform.slice(11, indexOfPx);
   if (currentPosition) return currentPosition;
   else return 0;
 }
 
 function nextImg() {
-  const lastImgPosition = `${-imgWidth * (imgCount - 1)}`; 
+  const lastImgPosition = `${-imgWidth * (imgCount - 1)}`;
   let currentPosition = getCurrentPosition();
 
   if (currentPosition !== lastImgPosition) {
-    images.style.transform = `translateX(${currentPosition - imgWidth}px)`; 
+    images.style.transform = `translateX(${currentPosition - imgWidth}px)`;
   }
+  highlightDot();
 }
 
 function prevImg() {
   let currentPosition = getCurrentPosition();
 
-  if (currentPosition != '0') {
-    images.style.transform = `translateX(${+currentPosition + imgWidth}px)`; 
+  if (currentPosition != "0") {
+    images.style.transform = `translateX(${+currentPosition + imgWidth}px)`;
   }
+  highlightDot();
 }
 
 function dotNavigation() {
-  const dots = document.querySelectorAll('.dot');
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      let index = Array.from(dots).indexOf(dot);
+      images.style.transform = `translateX(${index * -imgWidth}px)`;
+      highlightDot();
+    });
+  });
+}
 
-dots.forEach(dot => {
-  dot.addEventListener('click', () => {
-    let index = Array.from(dots).indexOf(dot);
-    images.style.transform = `translateX(${index * -imgWidth}px)`;
-  })
-})
+function highlightDot() {
+  let index = getCurrentPosition()/-imgWidth;
+  dots.forEach(dot => dot.classList.remove('selected'));
+  dots[index].classList.add('selected');
 }
 
 leftControl.onclick = prevImg;
 rightControl.onclick = nextImg;
 dotNavigation();
+
+let slideshow = setInterval(nextImg, 5000);
+window.addEventListener('click', () => {
+  clearInterval(slideshow);
+  slideshow = setInterval(nextImg, 5000);
+})
+

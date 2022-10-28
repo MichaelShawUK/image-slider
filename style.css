@@ -54,11 +54,14 @@
   background: linear-gradient(90deg, #ddd, #fff);
 }
 
-
 #dots {
   display: flex;
   font-size: 3rem;
   justify-content: center;
+}
+
+.selected {
+  color: silver;
 }
 
 .dot:hover {
